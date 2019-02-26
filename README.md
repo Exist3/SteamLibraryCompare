@@ -1,5 +1,6 @@
 # SteamLibraryCompare
 An application that allows users to compare their steam library with those on their friends list.
+A user chooses one or more friends and the program will return all games that all friends share with the user.
 
 # Setup
 Before using the software, you will need to acquire two pieces of information. A Steam API key and your Steam ID.
