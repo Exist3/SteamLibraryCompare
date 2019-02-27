@@ -64,6 +64,7 @@ def get_friend_ids(steam_id):
     data = get_friends(steam_id)
     if data:
         for i in data["friendslist"]["friends"]:
+            if get_account_info(i)["response"]["players"][0]["communityvisibilitystate"] == 3 #account is visible
             output.append(i["steamid"])
         return output
     else:
