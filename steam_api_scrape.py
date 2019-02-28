@@ -2,6 +2,11 @@
 import requests
 import json
 
+with open("details.txt") as f:
+    lines = f.readlines()
+    api_token = lines[0].rstrip()
+    account_id = lines[1].rstrip()
+
 
 def get_account_info(steam_ids):
     """
@@ -107,11 +112,6 @@ def get_game_list(steam_id):
 
 
 if __name__ == "__main__":
-    with open("details.txt") as f:
-        lines = f.readlines()
-        api_token = lines[0].rstrip()
-        account_id = lines[1].rstrip()
-
     print("Friends:")
     friends = {}
     for i, value in enumerate(get_friend_ids(account_id)):
