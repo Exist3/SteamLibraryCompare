@@ -34,9 +34,7 @@ class LibraryCompare(QWidget):
         while self.get_games_form().rowCount() > 0:
             self.games_form.removeRow(0)
 
-
     def init_ui(self):
-
         # Initialise Layouts
         layout = QHBoxLayout()
         col_1 = QVBoxLayout()
@@ -80,9 +78,11 @@ class LibraryCompare(QWidget):
     def compare_btn_pressed(self):
         games = set(get_game_list(account_id))
         self.reset_games_form()
+        # Creates list containing only games shared by all chosen users
         for i, button in enumerate(self.get_buttons()):
             if button.isChecked():
                 games = games.intersection(set(get_game_list(self.get_friends()[i])))
+        # Displays list on screen
         for game in games:
             self.get_games_form().addRow(QLabel(game))
 
